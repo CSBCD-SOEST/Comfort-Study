@@ -1,0 +1,42 @@
+Log name: 06/18/2015 01:46:59 PM
+User: eileen ellis
+Project name: C:\Users\eileen ellis\Desktop\Temp_Flow_Test_DAQ1.seproj
+File name: C:\Users\eileen ellis\Desktop\Documents\SignalExpress Data\06182015_014659_PM\Voltage.tdms
+File size: 34.118kB
+Log duration: 24 minutes, 24 seconds
+Log dt (s): 1
+Log iteration length (s): 1
+Number of sample in log: 1464
+Log datatype: Time-WDT-Real
+Unit: deg F
+Log start time: 6/18/2015 13:47:00.352
+Time zone: Hawaiian Standard Time
+Writer name: SignalExpress 2013
+Writer version: 7.0
+File format version: 2.1
+Log signal names:
+     06/18/2015 01:46:59 PM - Voltage - T1_Dev1_ai0
+     06/18/2015 01:46:59 PM - Voltage - T2_Dev1_ai2
+     06/18/2015 01:46:59 PM - Voltage - F1_Dev1_ai1
+     06/18/2015 01:46:59 PM - Voltage - T3_Dev1_ai4
+     06/18/2015 01:46:59 PM - Voltage - F3_Dev1_ai5
+     06/18/2015 01:46:59 PM - Voltage - T5_Dev1_ai6
+     06/18/2015 01:46:59 PM - Voltage - F5_Dev1_ai7
+     06/18/2015 01:46:59 PM - Voltage - T4_Dev1_ai8
+     06/18/2015 01:46:59 PM - Voltage - F4_Dev1_ai9
+     06/18/2015 01:46:59 PM - Voltage - F6_Dev1_ai10
+     06/18/2015 01:46:59 PM - Voltage - T7_Dev1_ai11
+     06/18/2015 01:46:59 PM - Voltage - F8_Dev1_ai12
+     06/18/2015 01:46:59 PM - Voltage - T8_Dev1_ai13
+     06/18/2015 01:46:59 PM - Voltage - F7_Dev1_ai14
+     06/18/2015 01:46:59 PM - Voltage - T6_Dev1_ai15
+
+
+Alarms:
+None
+
+Start conditions:
+None
+
+Stop conditions:
+None
