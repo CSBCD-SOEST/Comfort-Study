@@ -2,16 +2,16 @@ import NISignalExpressUtility
 import os
 import time
 import datetime
-import shutil
+#import shutil
 import csv
-from GrundfosUtility import convert_output
+#from GrundfosUtility import convert_output
 from DataFiles import __data__
 from ConvertedCSVs import __converted__
 from ReshapedCSVs import __reshaped__
 from CalibratedCSVs import __calibrated__
 from Output import __output__
 from NISignalExpressUtility import separatefiles
-from NISignalExpressUtility import network_share_auth
+#from NISignalExpressUtility import network_share_auth
 data_location = os.path.dirname(os.path.abspath(__data__.__file__)) #DataFile
 converted_location = os.path.dirname(os.path.abspath(__converted__.__file__))
 reshaped_location = os.path.dirname(os.path.abspath(__reshaped__.__file__))
@@ -77,7 +77,10 @@ while 1:
                 except Exception as e:
 #                    print e
                     print "File " + folder_name + " not ready for processing"
+    #move into ADASEED folder
+    #can be configured for different output folders
     separatefiles()
+    #clear temporary files
     for files in os.listdir(converted_location):
         if ".csv" in files:
             os.remove(os.path.join(converted_location, files))   
@@ -88,71 +91,6 @@ while 1:
 
     for files in os.listdir(calibrated_location):
         if ".csv" in files:
-            os.remove(os.path.join(calibrated_location, files))    
+            os.remove(os.path.join(calibrated_location, files)) 
+    #sleep for 10 minutes
     time.sleep(600)
-                    
-                    
-'''      
-            archived = False
-            with open('archive.csv','rb') as archivefile:
-                #print "archive file opened"
-                archivereader = csv.reader(archivefile)
-                #print "here"
-                
-                for archiveditem in archivereader:
-                    #print folder_name
-                    print archiveditem
-                    if folder_name is archiveditem:
-                        
-                    #if item has not yet been archived
-                        archived = True
-            #print archived
-            if not archived:
-                #print "not archived"
-                with open('archive.csv', 'wb') as archivefile:
-                    #add item to archived list
-                    archivewriter = csv.writer(archivefile)
-                    archivewriter.writerow(list(folder_name))
-                #for data_folders in data_folders_locations:
-                create_time = os.path.getctime(os.path.abspath(data_folders_locations))
-                if current_epoch - 3600 > create_time:
-                    NIExtract = NISignalExpressUtility.NISignalExpressUtility(\
-                        data_folders_locations, converted_location,\
-                        reshaped_location, calibrated_location)
-                    NIExtract.convert_to_csv()
-                    NIExtract.reshape_csv()
-                    NIExtract.calibrate_output()
-                            
-                                #archive converted files
-                                #shutil.move(os.path.abspath(data_folders), archive_location)
-        separatefiles()
-''' 
-  
-
-
-#    flowDir = os.path.join(os.path.dirname(os.path.abspath(__file__)),  "ADASEED", "CalibratedFlow")
-#    print "flowdir" 
-#    print flowDir
-#    flowFiles = os.listdir(flowDir)
-#    tempDir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ADASEED", "CalibratedTemperature")
-#    tempFilesDir = os.listdir(os.path.join(os.path.dirname(__file__), "CalibratedTemperature"))
-    #serverFlowDir = "P:\1.Projects\1.17.RadiantPanels\CalibratedFlow"
-    #serverTempDir = "P:\1.Projects\1.17.RadiantPanels\CalibratedTemperature"
-    
-'''
-    with network_share_auth(r"\\CSBCD\smb-share", "steve", ""):
-        for fileName in flowFiles:
-            if ".csv" in fileName:         
-                flowFilePath = os.path.join(flowDir, fileName)
-                print "flow file path"
-                print flowFilePath
-                shutil.copyfile(os.path.abspath(flowFilePath), r"P:\1.Projects\1.17.RadiantPanels\CalibratedFlow")
-        for fileName in tempFilesDir:
-            if ".csv" in fileName:
-                tempFilePath = os.path.join(tempDir, fileName)
-                shutil.copyfile(tempFilePath, r"P:\1.Projects\1.17.RadiantPanels\CalibratedTemperature")
-'''
-    #time.sleep(3600)
-
-#Enable only if the the collected data is from Grundfos VFS 1-20 sensor
-#convert_output(calibrated_location, output_location)
